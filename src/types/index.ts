@@ -11,6 +11,15 @@ export interface User {
   activityLevel?: 'sedentary' | 'light' | 'moderate' | 'active' | 'very_active';
 }
 
+export interface Micronutrients {
+  calcium?: string;
+  iron?: string;
+  vitamin_a?: string;
+  vitamin_c?: string;
+  sodium?: string;
+  potassium?: string;
+}
+
 export interface FoodItem {
   id: string;
   name: string;
@@ -20,6 +29,7 @@ export interface FoodItem {
   fat: number;
   serving_size: string;
   image_url?: string;
+  micronutrients?: Micronutrients;
 }
 
 export interface MealEntry {
@@ -63,3 +73,4 @@ export interface DailyStats {
   fatConsumed: number;
   fatGoal: number;
 }
+
