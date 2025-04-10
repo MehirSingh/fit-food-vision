@@ -16,7 +16,9 @@ const Profile = () => {
   const [age, setAge] = useState(user?.age?.toString() || '');
   const [weight, setWeight] = useState(user?.weight?.toString() || '');
   const [height, setHeight] = useState(user?.height?.toString() || '');
-  const [activityLevel, setActivityLevel] = useState(user?.activityLevel || 'moderate');
+  const [activityLevel, setActivityLevel] = useState<'sedentary' | 'light' | 'moderate' | 'active' | 'very_active'>(
+    user?.activityLevel || 'moderate'
+  );
   const [goal, setGoal] = useState<FitnessGoal>(user?.goal || 'maintenance');
   const [loading, setLoading] = useState(false);
   const { toast } = useToast();
@@ -81,7 +83,7 @@ const Profile = () => {
       age: ageNum,
       weight: weightNum,
       height: heightNum,
-      activityLevel: activityLevel as any,
+      activityLevel,
       tdee
     });
     
@@ -153,7 +155,7 @@ const Profile = () => {
                   <Label htmlFor="activity-level">Activity Level</Label>
                   <Select 
                     value={activityLevel} 
-                    onValueChange={(value) => setActivityLevel(value)}
+                    onValueChange={(value: 'sedentary' | 'light' | 'moderate' | 'active' | 'very_active') => setActivityLevel(value)}
                   >
                     <SelectTrigger id="activity-level">
                       <SelectValue placeholder="Select activity level" />
