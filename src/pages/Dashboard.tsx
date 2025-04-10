@@ -104,7 +104,9 @@ const Dashboard = () => {
                   <Progress 
                     value={Math.min(Math.round((macro.value / macro.goal) * 100), 100)} 
                     className="mt-2" 
-                    indicatorClassName={`bg-[${macro.color}]`}
+                    style={{ 
+                      ['--progress-background' as any]: macro.color 
+                    }}
                   />
                 </CardContent>
               </Card>

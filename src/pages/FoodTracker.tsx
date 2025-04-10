@@ -10,7 +10,7 @@ import Header from '@/components/Header';
 import { useFood } from '@/context/FoodContext';
 import { searchFoodByText, getFoodByImage } from '@/services/api';
 import { FoodItem } from '@/types';
-import { Search, Camera, X, Plus, Check } from 'lucide-react';
+import { Search, Camera, X, Plus, Check, UtensilsCrossed } from 'lucide-react';
 import { Label } from '@/components/ui/label';
 
 const FoodTracker = () => {
